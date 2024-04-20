@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../styles/signup.css">
+    </head>
+    <body>
+        <form method="post" action="/signup">
+            <input placeholder="name" name="name"/>
+            <input placeholder="username" name="username"/>
+            <input placeholder="email" name="email"/>
+            <input placeholder="password" name="password" type="password"/>
+            <input placeholder="phone" name="phone"/>
+            <input type="submit" value="submit"/>
+        </form>
+        <% if(error){ %>
+            <div><%=error%></div>
+        <% } %>
+    </body>
+</html>

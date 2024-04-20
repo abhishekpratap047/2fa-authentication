@@ -1,0 +1,31 @@
+<%- include("partials/header", {user:"User"}) %>
+
+<% if(products.length === 0){ %>
+    <h1>nothing found</h1>
+<% } %>
+
+<% const productsPerPage = 2; %>
+<% let total_pages = ( Math.ceil(products.length/productsPerPage) ); %>
+<% console.log(total_pages) %>
+<% const lastProductIndex = (productsPerPage* page_no) - 1; %>
+
+
+<% let i = 0; %>
+<% while(i<(page_no-1)*productsPerPage && i<products.length){ %>
+    <div>
+    <img src = "<%=products[i].image%>" style="width: 100px; height: 100px;"/>
+    <p> <%=products[i].name%></p>
+    </div>
+<% i++ %>
+<% } %>
+
+<% if(page_no-1<total_pages){ %>
+    <a href = "/home?page_no=<%=page_no%>">
+        <button>Load more</button>
+    </a>
+<% } %>
+<% if(page_no-1==total_pages){ %>
+    <a href = "/home?page_no=1">
+        <button>Goto top</button>
+    </a>
+<% } %>
